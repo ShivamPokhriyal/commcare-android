@@ -177,6 +177,7 @@ task injectGoogleServicesAPIKey(type: Copy) {
     into projectDir
 }
 
+
 def isBelowGradleThree() {
     return (gradle.gradleVersion.split("\\.")[0] as double) < 3
 }
@@ -550,6 +551,20 @@ downloadRestoreFile {
     }
 }
 
+//task copyFileForTest {
+//    description ="Copy cczs for instrumentation tests to device"
+//    println "SHIVAMMM"
+////    doFirst {
+//        println 'Pushing cczs'
+//        def resFolder = new File(projectDir.absolutePath+'/instrumentation-tests/resources/testSavedForm.ccz')
+//
+////        exec {
+//            commandLine android.getAdbExecutable(), 'push', "${resFolder.absolutePath}", './storage/emulated/0/'
+////        }
+////    }
+//}
+
+
 // dynamically inject commcare app download into standalone build process
 tasks.whenTaskAdded { task ->
     if ((task.name == 'processStandaloneDebugResources' ||
@@ -561,6 +576,11 @@ tasks.whenTaskAdded { task ->
             && "true".equals(isConsumerApp) && "true".equals(runDownloadScripts)) {
         task.dependsOn downloadRestoreFile
     }
+
+//    if (task.name == "connectedAndroidTest") {
+//        println "SHIVAMMMM $task.name"
+//        task.dependsOn copyFileForTest
+//    }
 }
 
 /**

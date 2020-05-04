@@ -20,7 +20,7 @@ public abstract class CommCareTask<Params, Progress, Result, Receiver>
     private final Object connectorLock = new Object();
     private CommCareTaskConnector<Receiver> connector;
 
-    private Exception unknownError;
+    protected Exception unknownError;
 
     protected int taskId = GENERIC_TASK_ID;
 

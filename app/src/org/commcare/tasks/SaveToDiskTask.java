@@ -256,7 +256,7 @@ public class SaveToDiskTask extends
         synchronized (this) {
             if (mSavedListener != null) {
                 if (result == null) {
-                    mSavedListener.savingComplete(SaveStatus.SAVE_ERROR, "Unknown Error");
+                    mSavedListener.savingComplete(SaveStatus.SAVE_ERROR, unknownError.getMessage());
                 } else {
                     mSavedListener.savingComplete(result.data, result.errorMessage);
                 }

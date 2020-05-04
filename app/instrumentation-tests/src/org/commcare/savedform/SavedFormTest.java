@@ -24,6 +24,7 @@ import org.commcare.dalvik.R;
 import org.commcare.utils.Utility;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -98,7 +99,7 @@ public class SavedFormTest {
     }
 
     @Before
-    public static void login() {
+    public void login() {
         Utility.login("check", "123");
     }
 

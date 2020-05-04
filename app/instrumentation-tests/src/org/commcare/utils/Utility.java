@@ -72,9 +72,9 @@ public class Utility {
 
     public static DataInteraction getSubViewInListItem(@IdRes int listId, int position, @IdRes int subviewId) {
         return onData(anything())
-                .inAdapterView(withId(android.R.id.list))
-                .atPosition(1)
-                .onChildView(withId(R.id.hev_secondary_text));
+                .inAdapterView(withId(listId))
+                .atPosition(position)
+                .onChildView(withId(subviewId));
     }
 
     public static void openFirstIncompleteForm() {
